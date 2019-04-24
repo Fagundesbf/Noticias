@@ -3,6 +3,7 @@ import * as bodyPaser from "body-parser";
 
 import Database from "./infra/db";
 import NewsController from "./controller/newsController";
+import ProfissionalController from "./controller/profissionalController";
 
 
 class StartUp{
@@ -36,6 +37,14 @@ class StartUp{
         this.app.route("/api/v1/news").post(NewsController.create);
         this.app.route("/api/v1/news/:id").put(NewsController.update); 
         this.app.route("/api/v1/news/:id").delete(NewsController.delete); 
+
+        //profissionalController
+
+        this.app.route("/api/v1/profissional").get(ProfissionalController.get);
+        this.app.route("/api/v1/profissional/:id").get(ProfissionalController.getById); 
+        this.app.route("/api/v1/profissional").post(ProfissionalController.create);
+        this.app.route("/api/v1/profissional/:id").put(ProfissionalController.update); 
+        this.app.route("/api/v1/profissional/:id").delete(ProfissionalController.delete); 
     }
 
 }
