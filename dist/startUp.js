@@ -32,7 +32,6 @@ class StartUp {
         this.app.route("/api/v1/profissional/:id").get(profissionalController_1.default.getById);
         this.app.route("/api/v1/profissional").post(profissionalController_1.default.create);
         this.app.route("/api/v1/profissional/:id").put(profissionalController_1.default.update);
-        this.app.route("/api/v1/profissional/:id").delete(profissionalController_1.default.delete);
     }
 }
 exports.default = new StartUp();

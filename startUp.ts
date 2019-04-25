@@ -44,7 +44,6 @@ class StartUp{
         this.app.route("/api/v1/profissional/:id").get(ProfissionalController.getById); 
         this.app.route("/api/v1/profissional").post(ProfissionalController.create);
         this.app.route("/api/v1/profissional/:id").put(ProfissionalController.update); 
-        this.app.route("/api/v1/profissional/:id").delete(ProfissionalController.delete); 
     }
 
 }

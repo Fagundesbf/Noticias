@@ -17,10 +17,6 @@ class ProfissionalService {
     update(_id, profissional){
         return profissionalRepository.findByIdAndUpdate(_id, profissional);
     }
-
-    delete(_id){
-        return profissionalRepository.findByIdAndRemove(_id);
-    }
 }
 
 export default new ProfissionalService();

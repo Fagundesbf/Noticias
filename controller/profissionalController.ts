@@ -6,7 +6,7 @@ import Helper from "../infra/helper";
 class ProfissionalController {
   get(req, res) {
     ProfissionalService.get()
-      .then(news => Helper.sendResponse(res, HttpStatus.OK, news))
+      .then(profissional => Helper.sendResponse(res, HttpStatus.OK, profissional))
       .catch(error => console.error.bind(console, `Error ${error}`));
   }
 
@@ -14,7 +14,7 @@ class ProfissionalController {
     const _id = req.params.id;
 
     ProfissionalService.getById(_id)
-      .then(news => Helper.sendResponse(res, HttpStatus.OK, news))
+      .then(profissional => Helper.sendResponse(res, HttpStatus.OK, profissional))
       .catch(error => console.error.bind(console, `Error ${error}`));
   }
 
@@ -22,11 +22,11 @@ class ProfissionalController {
     let vm = req.body;
 
     ProfissionalService.create(vm)
-      .then(news =>
+      .then(profissional =>
         Helper.sendResponse(
           res,
           HttpStatus.OK,
-          "Noticia cadastrada com sucesso!"
+          "Usuário cadastrado com sucesso!"
         )
       )
       .catch(error => console.error.bind(console, `Error ${error}`));
@@ -34,28 +34,19 @@ class ProfissionalController {
 
   update(req, res) {
     const _id = req.params.id;
-    let news = req.body;
+    let profissional = req.body;
 
-    ProfissionalService.update(_id, news)
-      .then(news =>
+    ProfissionalService.update(_id, profissional)
+      .then(profissional =>
         Helper.sendResponse(
           res,
           HttpStatus.OK,
-          "Notícia foi atualiza com sucesso!"
+          "Usuário foi atualiza com sucesso!"
         )
       )
       .catch(error => console.error.bind(console, `Error ${error}`));
   }
 
-  delete(req, res) {
-    const _id = req.params.id;
-
-    ProfissionalService.delete(_id)
-      .then(() =>
-        Helper.sendResponse(res, HttpStatus.OK, "Noticia deletada com sucesso!")
-      )
-      .catch(error => console.error.bind(console, `Error ${error}`));
-  }
 }
 
 export default new ProfissionalController();
