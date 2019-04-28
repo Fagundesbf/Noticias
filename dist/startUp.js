@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const bodyPaser = require("body-parser");
+const cors = require("cors");
 const db_1 = require("./infra/db");
 const newsController_1 = require("./controller/newsController");
 const profissionalController_1 = require("./controller/profissionalController");
@@ -13,7 +14,15 @@ class StartUp {
         this.middler();
         this.routes();
     }
+    enableCors() {
+        const options = {
+            methods: "GET, OPTIONS, PUT, PUT, DELETE",
+            origin: "*"
+        };
+        this.app.use(cors(options));
+    }
     middler() {
+        this.enableCors();
         this.app.use(bodyPaser.json());
         this.app.use(bodyPaser.urlencoded({ extended: false }));
     }
