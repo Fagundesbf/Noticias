@@ -1,11 +1,11 @@
-import NewsService from "../services/newsService";
+import AtletasService from "../services/atletasService";
 import * as HttpStatus from "http-status";
 
 import Helper from "../infra/helper";
 
-class NewsController {
+class AtletasController {
   get(req, res) {
-    NewsService.get()
+    AtletasService.get()
       .then(news => Helper.sendResponse(res, HttpStatus.OK, news))
       .catch(error => console.error.bind(console, `Error ${error}`));
   }
@@ -13,7 +13,7 @@ class NewsController {
   getById(req, res) {
     const _id = req.params.id;
 
-    NewsService.getById(_id)
+    AtletasService.getById(_id)
       .then(news => Helper.sendResponse(res, HttpStatus.OK, news))
       .catch(error => console.error.bind(console, `Error ${error}`));
   }
@@ -21,12 +21,12 @@ class NewsController {
   create(req, res) {
     let vm = req.body;
 
-    NewsService.create(vm)
+    AtletasService.create(vm)
       .then(news =>
         Helper.sendResponse(
           res,
           HttpStatus.OK,
-          "Atleta Cadastrada com sucesso!"
+          "Noticia cadastrada com sucesso!"
         )
       )
       .catch(error => console.error.bind(console, `Error ${error}`));
@@ -36,12 +36,12 @@ class NewsController {
     const _id = req.params.id;
     let news = req.body;
 
-    NewsService.update(_id, news)
+    AtletasService.update(_id, news)
       .then(news =>
         Helper.sendResponse(
           res,
           HttpStatus.OK,
-          "Atleta foi atualiza com sucesso!"
+          "Notícia foi atualiza com sucesso!"
         )
       )
       .catch(error => console.error.bind(console, `Error ${error}`));
@@ -50,12 +50,12 @@ class NewsController {
   delete(req, res) {
     const _id = req.params.id;
 
-    NewsService.delete(_id)
+    AtletasService.delete(_id)
       .then(() =>
-        Helper.sendResponse(res, HttpStatus.OK, "Atleta deletada com sucesso!")
+        Helper.sendResponse(res, HttpStatus.OK, "Noticia deletada com sucesso!")
       )
       .catch(error => console.error.bind(console, `Error ${error}`));
   }
 }
 
-export default new NewsController();
+export default new AtletasController();
