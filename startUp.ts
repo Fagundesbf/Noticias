@@ -5,8 +5,6 @@ import * as cors from 'cors';
 import Database from "./infra/db";
 import NewsController from "./controller/newsController";
 import ProfissionalController from "./controller/profissionalController";
-import AtletasController from "./controller/atletasController";
-
 
 
 class StartUp{
@@ -57,13 +55,6 @@ class StartUp{
         this.app.route("/api/v1/profissional/:id").get(ProfissionalController.getById); 
         this.app.route("/api/v1/profissional").post(ProfissionalController.create);
         this.app.route("/api/v1/profissional/:id").put(ProfissionalController.update); 
-
-        //AtletasController
-
-        this.app.route("/api/v1/profissional").get(AtletasController.get);
-        this.app.route("/api/v1/profissional/:id").get(AtletasController.getById); 
-        this.app.route("/api/v1/profissional").post(AtletasController.create);
-        this.app.route("/api/v1/profissional/:id").put(AtletasController.update); 
     }
 
 }

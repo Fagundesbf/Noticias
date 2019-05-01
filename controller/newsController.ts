@@ -26,7 +26,7 @@ class NewsController {
         Helper.sendResponse(
           res,
           HttpStatus.OK,
-          "Atleta Cadastrada com sucesso!"
+          "Noticia cadastrada com sucesso!"
         )
       )
       .catch(error => console.error.bind(console, `Error ${error}`));
@@ -41,7 +41,7 @@ class NewsController {
         Helper.sendResponse(
           res,
           HttpStatus.OK,
-          "Atleta foi atualiza com sucesso!"
+          "Notícia foi atualiza com sucesso!"
         )
       )
       .catch(error => console.error.bind(console, `Error ${error}`));
@@ -52,7 +52,7 @@ class NewsController {
 
     NewsService.delete(_id)
       .then(() =>
-        Helper.sendResponse(res, HttpStatus.OK, "Atleta deletada com sucesso!")
+        Helper.sendResponse(res, HttpStatus.OK, "Noticia deletada com sucesso!")
       )
       .catch(error => console.error.bind(console, `Error ${error}`));
   }
