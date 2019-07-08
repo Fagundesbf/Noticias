@@ -9,6 +9,7 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
+    "host": "localHost:3050 || https://noticias-api.herokuapp.com/swagger/ ",
     "servers": [
         {
             "url": "noticias-api.herokuapp.com",
@@ -20,6 +21,10 @@
             "name": "Gestão Financeira",
             "description": "API para Gestão Financeira"
         }
+    ],
+    "schemes": [
+        "http",
+        "https"
     ],
     "consumes": [
         "application/json"

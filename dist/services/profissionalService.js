@@ -18,7 +18,7 @@ class ProfissionalService {
         return profissionalRepository_1.default.findByIdAndUpdate(_id, profissional);
     }
     delete(_id) {
-        return profissionalRepository_1.default.findByIdAndRemove(_id);
+        return profissionalRepository_1.default.findOneAndDelete(_id);
     }
 }
 exports.default = new ProfissionalService();

@@ -19,7 +19,7 @@ class ProfissionalService {
     }
 
     delete(_id){
-        return profissionalRepository.findByIdAndRemove(_id);
+        return profissionalRepository.findOneAndDelete(_id);
     }
 }
 
