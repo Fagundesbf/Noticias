@@ -1,6 +1,9 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const newsRepository_1 = require("../repository/newsRepository");
+const newsRepository_1 = __importDefault(require("../repository/newsRepository"));
 class NewsService {
     get() {
         return newsRepository_1.default.find({});
@@ -19,3 +22,4 @@ class NewsService {
     }
 }
 exports.default = new NewsService();
+//# sourceMappingURL=newsService.js.map

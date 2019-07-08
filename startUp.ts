@@ -1,6 +1,9 @@
-import * as express from "express";
-import * as bodyPaser from "body-parser";
-import * as cors from 'cors';
+import  express from "express";
+import bodyPaser from "body-parser";
+import  cors from 'cors';
+
+import swaggerUi from 'swagger-ui-express';
+import * as swaggerDocument from './swagger.json';
 
 import Database from "./infra/db";
 import NewsController from "./controller/newsController";
@@ -41,6 +44,8 @@ class StartUp{
         this.app.route('/').get((req,res)=>{
              res.send({ versao:'0.0.1'});
         });
+
+        this.app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
         //newsController
 

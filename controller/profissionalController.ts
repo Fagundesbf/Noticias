@@ -46,6 +46,15 @@ class ProfissionalController {
       )
       .catch(error => console.error.bind(console, `Error ${error}`));
   }
+  delete(req, res) {
+    const _id = req.params.id;
+
+    ProfissionalService.delete(_id)
+      .then(() =>
+        Helper.sendResponse(res, HttpStatus.OK, "Profissional deletado com sucesso!")
+      )
+      .catch(error => console.error.bind(console, `Error ${error}`));
+  }
 
 }
 

@@ -1,8 +1,18 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const profissionalService_1 = require("../services/profissionalService");
-const HttpStatus = require("http-status");
-const helper_1 = require("../infra/helper");
+const profissionalService_1 = __importDefault(require("../services/profissionalService"));
+const HttpStatus = __importStar(require("http-status"));
+const helper_1 = __importDefault(require("../infra/helper"));
 class ProfissionalController {
     get(req, res) {
         profissionalService_1.default.get()
@@ -28,5 +38,12 @@ class ProfissionalController {
             .then(profissional => helper_1.default.sendResponse(res, HttpStatus.OK, "Usuário foi atualiza com sucesso!"))
             .catch(error => console.error.bind(console, `Error ${error}`));
     }
+    delete(req, res) {
+        const _id = req.params.id;
+        profissionalService_1.default.delete(_id)
+            .then(() => helper_1.default.sendResponse(res, HttpStatus.OK, "Profissional deletado com sucesso!"))
+            .catch(error => console.error.bind(console, `Error ${error}`));
+    }
 }
 exports.default = new ProfissionalController();
+//# sourceMappingURL=profissionalController.js.map

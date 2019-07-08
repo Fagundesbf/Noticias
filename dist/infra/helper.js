@@ -8,3 +8,4 @@ class Helper {
     }
 }
 exports.default = new Helper();
+//# sourceMappingURL=helper.js.map

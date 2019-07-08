@@ -1,14 +1,26 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express = require("express");
-const bodyPaser = require("body-parser");
-const cors = require("cors");
-const db_1 = require("./infra/db");
-const newsController_1 = require("./controller/newsController");
-const profissionalController_1 = require("./controller/profissionalController");
+const express_1 = __importDefault(require("express"));
+const body_parser_1 = __importDefault(require("body-parser"));
+const cors_1 = __importDefault(require("cors"));
+const swagger_ui_express_1 = __importDefault(require("swagger-ui-express"));
+const swaggerDocument = __importStar(require("./swagger.json"));
+const db_1 = __importDefault(require("./infra/db"));
+const newsController_1 = __importDefault(require("./controller/newsController"));
+const profissionalController_1 = __importDefault(require("./controller/profissionalController"));
 class StartUp {
     constructor() {
-        this.app = express();
+        this.app = express_1.default();
         this._db = new db_1.default();
         this._db.createConnection();
         this.middler();
@@ -19,17 +31,18 @@ class StartUp {
             methods: "GET, OPTIONS, PUT, PUT, DELETE",
             origin: "*"
         };
-        this.app.use(cors(options));
+        this.app.use(cors_1.default(options));
     }
     middler() {
         this.enableCors();
-        this.app.use(bodyPaser.json());
-        this.app.use(bodyPaser.urlencoded({ extended: false }));
+        this.app.use(body_parser_1.default.json());
+        this.app.use(body_parser_1.default.urlencoded({ extended: false }));
     }
     routes() {
         this.app.route('/').get((req, res) => {
             res.send({ versao: '0.0.1' });
         });
+        this.app.use('/swagger', swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swaggerDocument));
         //newsController
         this.app.route("/api/v1/news").get(newsController_1.default.get);
         this.app.route("/api/v1/news/:id").get(newsController_1.default.getById);
@@ -44,3 +57,4 @@ class StartUp {
     }
 }
 exports.default = new StartUp();
+//# sourceMappingURL=startUp.js.map

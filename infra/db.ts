@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose';
+import  mongoose from 'mongoose';
 
 class Database{
     // private DB_URl  = 'mongodb://localhost:17017/db_portal'
