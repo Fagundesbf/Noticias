@@ -98,9 +98,12 @@
                 "parameters": [
                     {
                         "in": "path",
-                        "name": "id",
+                        "idProfissional": "id",
                         "required": true,
-                        "description": "Cat with id",
+                        "projeto":"Projeto"
+                        "image": "url image",
+                         "dataInicio":"21/12/1993",
+                         "active":true,
                         "schema": {
                             "$ref": "#/definitions/id"
                         }
