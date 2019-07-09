@@ -9,7 +9,7 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "noticias-api.herokuapp.com/swagger",
+    "host": "noticias-api.herokuapp.com",
     "servers": [
         {
             "url": "noticias-api.herokuapp.com",
