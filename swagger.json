@@ -54,7 +54,10 @@
                 ],
                 "summary": "Create a new Profissional in system",
                 "requestBody": {
-                    "description": "Profissional Object",
+                    "projeto":"Projeto",
+                        "image": "url image",
+                         "dataInicio":"21/12/1993",
+                         "active":true,
                     "required": true,
                     "content": {
                         "application/json": {
@@ -100,10 +103,7 @@
                         "in": "path",
                         "idProfissional": "id",
                         "required": true,
-                        "projeto":"Projeto"
-                        "image": "url image",
-                         "dataInicio":"21/12/1993",
-                         "active":true,
+                        "description":"ok",
                         "schema": {
                             "$ref": "#/definitions/id"
                         }
