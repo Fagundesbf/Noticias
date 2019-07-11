@@ -4,12 +4,12 @@
         "version": "1.0.0",
         "title": "Aplicação Gestao Financeiro.",
         "descriptyion": "Api para aplicação Mobile, com interesse de apliar conhecimento.",
-        "license":{
+        "license": {
             "name": "Gestão Financeira",
-            "url": "https://opensource.org/licenses/MIT" 
+            "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host":"noticias-api.herokuapp.com",
+    "host": "noticias-api.herokuapp.com",
     "servers": [
         {
             "url": "noticias-api.herokuapp.com",
@@ -22,7 +22,7 @@
             "description": "API para Gestão Financeira"
         }
     ],
-    "schemes":[
+    "schemes": [
         "http",
         "https"
     ],
@@ -53,20 +53,16 @@
                     "Cadastrar Profissional "
                 ],
                 "summary": "Create a new Profissional in system",
-                "requestBody": {
-                    "projeto":"Projeto",
-                        "image": "url image",
-                         "dataInicio":"21/12/1993",
-                         "active":true,
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/definitions/Profissional"
-                            }
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "API para Gestão Financeira",
+                        "schema": {
+                            "$ref": "#/definitions/Profissional"
                         }
                     }
-                },
+                ],
                 "produces": [
                     "application/json"
                 ],
@@ -74,7 +70,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/id"
+                            "$ref": "#/definitions/Profissional"
                         }
                     },
                     "400": {
@@ -95,15 +91,15 @@
             ],
             "get": {
                 "tags": [
-                    "Profissionais"
+                    "PROfissionais"
                 ],
                 "summary": "Get cat with given ID",
                 "parameters": [
                     {
                         "in": "path",
-                        "idProfissional": "id",
+                        "name": "id",
                         "required": true,
-                        "description":"ok",
+                        "description": "Cat with id",
                         "schema": {
                             "$ref": "#/definitions/id"
                         }
@@ -126,26 +122,18 @@
                 "tags": [
                     "Profissionais"
                 ],
-                "requestBody": {
-                    "description": "Cat Object",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/definitions/Profissional"
-                            }
-                        }
+            "parameters":[
+                {
+                    "in":"body",
+                    "name":"body",
+                    "required":"true",
+                    "description":"Profissionais with new values Proprieties",
+                    "schema":{
+                        "$ref":"#/definitions/Profissional"
+
                     }
-                },
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "id",
-                        "schema": {
-                            "$ref": "#/definitions/Profissional"
-                        }
-                    }
-                ],
+                }
+            ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -202,27 +190,23 @@
         "Profissional": {
             "type": "object",
             "properties": {
-
-                "id": {
+                "nome": {
                     "type": "string"
                 },
-                "nome": {
-                     "type": "string"
-                     },
-                "projeto": { 
+                "projeto": {
                     "type": "string"
-                 },
+                },
                 "sprint": {
-                     "type": "string" 
-                    },
+                    "type": "string"
+                },
                 "image": {
-                     "type": "string"
-                 },
-                "dataInicio" : {
-                     "type": "date"
-                 },
+                    "type": "string"
+                },
+                "dataInicio": {
+                    "type": "date"
+                },
                 "active": {
-                     "type": "Boolean" 
+                    "type": "Boolean"
                 },
             }
         },

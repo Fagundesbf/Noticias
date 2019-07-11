@@ -53,20 +53,16 @@
                     "Cadastrar Profissional "
                 ],
                 "summary": "Create a new Profissional in system",
-                "requestBody": {
-                    "projeto": "Projeto",
-                    "image": "url image",
-                    "dataInicio": "21/12/1993",
-                    "active": true,
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/definitions/Profissional"
-                            }
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "API para Gestão Financeira",
+                        "schema": {
+                            "$ref": "#/definitions/Profissional"
                         }
                     }
-                },
+                ],
                 "produces": [
                     "application/json"
                 ],
@@ -74,7 +70,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/id"
+                            "$ref": "#/definitions/Profissional"
                         }
                     },
                     "400": {
@@ -95,15 +91,15 @@
             ],
             "get": {
                 "tags": [
-                    "Profissionais"
+                    "PROfissionais"
                 ],
                 "summary": "Get cat with given ID",
                 "parameters": [
                     {
                         "in": "path",
-                        "idProfissional": "id",
+                        "name": "id",
                         "required": true,
-                        "description": "ok",
+                        "description": "Cat with id",
                         "schema": {
                             "$ref": "#/definitions/id"
                         }
@@ -126,21 +122,12 @@
                 "tags": [
                     "Profissionais"
                 ],
-                "requestBody": {
-                    "description": "Cat Object",
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/definitions/Profissional"
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "in": "body",
-                        "name": "id",
+                        "name": "body",
+                        "required": "true",
+                        "description": "Profissionais with new values Proprieties",
                         "schema": {
                             "$ref": "#/definitions/Profissional"
                         }
@@ -202,9 +189,6 @@
         "Profissional": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "string"
-                },
                 "nome": {
                     "type": "string"
                 },
