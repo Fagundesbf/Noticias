@@ -139,12 +139,10 @@
                 },
                 "parameters": [
                     {
-                        "in": "path",
+                        "in": "body",
                         "name": "id",
-                        "required": true,
-                        "description": "Cat with new values of properties",
                         "schema": {
-                            "$ref": "#/definitions/id"
+                            "$ref": "#/definitions/Profissional"
                         }
                     }
                 ],
@@ -204,24 +202,33 @@
         "Profissional": {
             "type": "object",
             "properties": {
-                "genus": {
+                "id": {
                     "type": "string"
                 },
-                "name": {
+                "nome": {
                     "type": "string"
                 },
-                "isHungry": {
-                    "type": "boolean"
-                },
-                "lastFedDate": {
+                "projeto": {
                     "type": "string"
+                },
+                "sprint": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "dataInicio": {
+                    "type": "date"
+                },
+                "active": {
+                    "type": "Boolean"
                 }
             }
         },
         "Profissionais": {
             "type": "object",
             "properties": {
-                "cats": {
+                "profissionais": {
                     "type": "object",
                     "additionalProperties": {
                         "$ref": "#/definitions/Profissional"
