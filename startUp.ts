@@ -8,6 +8,8 @@ import * as swaggerDocument from './swagger.json';
 import Database from "./infra/db";
 import NewsController from "./controller/newsController";
 import ProfissionalController from "./controller/profissionalController";
+import UsersController from "./controller/usersController";
+import usersController from "./controller/usersController";
 
 
 
@@ -63,7 +65,12 @@ class StartUp{
         this.app.route("/api/v1/profissional/:id").put(ProfissionalController.update); 
         this.app.route("/api/v1/profissional/:id").delete(ProfissionalController.delete); 
 
-
+        //UsuarioController 
+        this.app.route("/api/v1/users").get(usersController.get);      
+        this.app.route("/api/v1/users/:id").get(usersController.getById);      
+        this.app.route("/api/v1/users").post(usersController.create);      
+        this.app.route("/api/v1/users/:id").put(usersController.update);      
+        this.app.route("/api/v1/users/:id").delete(usersController.delete);      
      
     }
 

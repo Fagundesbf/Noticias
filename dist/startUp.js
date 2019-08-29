@@ -18,6 +18,7 @@ const swaggerDocument = __importStar(require("./swagger.json"));
 const db_1 = __importDefault(require("./infra/db"));
 const newsController_1 = __importDefault(require("./controller/newsController"));
 const profissionalController_1 = __importDefault(require("./controller/profissionalController"));
+const usersController_1 = __importDefault(require("./controller/usersController"));
 class StartUp {
     constructor() {
         this.app = express_1.default();
@@ -55,6 +56,12 @@ class StartUp {
         this.app.route("/api/v1/profissional").post(profissionalController_1.default.create);
         this.app.route("/api/v1/profissional/:id").put(profissionalController_1.default.update);
         this.app.route("/api/v1/profissional/:id").delete(profissionalController_1.default.delete);
+        //UsuarioController 
+        this.app.route("/api/v1/users").get(usersController_1.default.get);
+        this.app.route("/api/v1/users/:id").get(usersController_1.default.getById);
+        this.app.route("/api/v1/users").post(usersController_1.default.create);
+        this.app.route("/api/v1/users/:id").put(usersController_1.default.update);
+        this.app.route("/api/v1/users/:id").delete(usersController_1.default.delete);
     }
 }
 exports.default = new StartUp();
