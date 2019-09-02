@@ -20,31 +20,45 @@ const usersSchema = new mongoose.Schema({
         type: Number,
         required:false 
     },
+    login:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
     active: { 
         type: Boolean,
         required:false
     },
-    news:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'news',
-        required:true
-    }],
-    // projects: [{
-    //     projectId:ObjectId,
-    //     projectName:String,
-    //     projectDescription:String,
-    //     projectDateCreated:Date,
-    //     projectDateFinished:Date,
-    //     projectActive:Boolean,
-    //     tasks:[{
-    //         taskId:ObjectId,
-    //         taskName:String,
-    //         taskDescription:String,
-    //         taskDateCreated:Date,
-    //         taskDateFinished:Date,
-    //         taskActive:Boolean,
-    //     }]
-    // }],
+    projects: {
+        projectName:String,
+        projectDescription:String,
+        projectDateCreated:Date,
+        projectDateFinished:Date,
+        projectActive:Boolean,
+    },
+   tasks:{
+            taskName:String,
+            taskDescription:String,
+            taskDateCreated:Date,
+            taskDateFinished:Date,
+            taskActive:Boolean,
+        },
+   bugs:{
+            bugName:String,
+            bugDescription:String,
+            bugDateCreated:Date,
+            bugDateFinished:Date,
+            bugActive:Boolean,
+        },
     image: { type: String }
 });
 export default  usersSchema;
+
+
+   // news:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:'news',
+    // },

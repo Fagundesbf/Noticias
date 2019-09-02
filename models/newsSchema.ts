@@ -1,7 +1,8 @@
 import * as mongoose from 'mongoose';
+import { ObjectID } from 'bson';
 
 const NewsSchema = new mongoose.Schema({
-
+    id:ObjectID,
     hat: { type: String },
     title: { type: String },
     text: { type: String },

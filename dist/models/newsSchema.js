@@ -8,7 +8,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose = __importStar(require("mongoose"));
+const bson_1 = require("bson");
 const NewsSchema = new mongoose.Schema({
+    id: bson_1.ObjectID,
     hat: { type: String },
     title: { type: String },
     text: { type: String },
